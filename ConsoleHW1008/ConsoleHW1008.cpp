@@ -1,20 +1,26 @@
-﻿
-#include <iostream>
+﻿#include <iostream>
+#include "Calculator.h"
+
 using namespace std;
 
-void printMultiplicationTable(int n) {
-    for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= n; ++j) {
-            cout << i << "*" << j << "=" << i * j << "\t";
-        }
-        cout << endl;
-    }
-}
+int main()
+{	
+	double x, y, result;
+	char oper;
 
-int main() {
-    int n = 1;
-    cout << "請輸入乘法表的大小: ";
-    cin >> n;
-    printMultiplicationTable(n);
-    return 0;
+	Calculator c;
+	while (true) {
+		char ch;
+		cout << "請輸入運算式: ";
+		cin >> x >> oper >> y;
+		result = c.Calculate(x, oper, y);
+		cout << "Result: " << result << endl;
+		cout << "是否繼續? (y/n) ";
+		cin >> ch;
+		if (ch == 'y') {
+			cout << "Continue..." << endl;
+			cout << "Go..." << endl;
+		}
+		else break;
+	}
 }
